@@ -1,0 +1,33 @@
+{% extends 'home.html' %}
+{% block content %}
+<div>
+	
+	<div> 
+
+		
+		<div>
+			
+			<table border=5>
+
+				{% for officer in content %}
+				<tr>
+					<th>{{officer.id}}</th>
+					<th>{{officer.Name}}</th>
+					<th>{{officer.Status}}</th>
+					<th>Update</th>
+					<th><a href="{% url 'create-activity'%}">add activity</a></th>
+				</tr>
+				
+				{% endfor %}
+
+			</table>
+
+
+		</div>
+
+		
+    </div>
+
+
+</div>
+{% endblock %}
