@@ -2,6 +2,5 @@ Installations requirments
 --> python3
 --> django
 --> venv
-Frontend Hosted on admin panel...
 To create a superuser:
   python3 manage.py createsuperuser
