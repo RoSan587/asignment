@@ -2,31 +2,34 @@
 {% block content %}
 <div>
 	
-	<div> 
-
 		
-		<div>
+	<div>
+		<div><a href="{% url 'create-officer' %}">add officer</a></div>
 			
-			<table border=5>
-
-				{% for officer in content %}
-				<tr>
-					<th>{{officer.id}}</th>
-					<th>{{officer.Name}}</th>
-					<th>{{officer.Status}}</th>
-					<th>Update</th>
-					<th><a href="{% url 'create-activity'%}">add activity</a></th>
-				</tr>
+		<table border=1>
+			<tr>
+				<th>Officerid</th>
+				<th>Officer Name</th>
+				<th>Status</th>
+				<th>Update</th>
+				<th>add_activity</th>
+			</tr>
+			{% for officer in content %}
+			<tr>
+				<th>{{officer.id}}</th>
+				<th>{{officer.Name}}</th>
+				<th>{{officer.Status}}</th>
+				<th><a href="{% url 'update-officer' officer.id %}">Update</a></th>
+				<th>add activity</th>
+			</tr>
 				
-				{% endfor %}
-
-			</table>
+			{% endfor %}
 
 
-		</div>
+		</table>
 
-		
-    </div>
+
+	</div>
 
 
 </div>
