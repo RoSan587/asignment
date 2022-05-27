@@ -1,6 +1,0 @@
-Installations requirments
---> python3
---> django
---> venv
-To create a superuser:
-  python3 manage.py createsuperuser
