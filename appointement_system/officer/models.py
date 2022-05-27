@@ -20,3 +20,5 @@ class Officer(models.Model):
 #	"""docstring for workdays"""
 #	OfficerID = models.ForiegnKey(Officer,on_delete=RESTICT)
 #	workdays  = models.CharField()
+
+#Some changes
