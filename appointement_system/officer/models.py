@@ -5,7 +5,7 @@ class Officer(models.Model):
 	"""docstring for Officer"""
 	Name =	models.CharField(max_length=50)
 	Post =	models.CharField(max_length=50)
-	STATUS = [('active','active'), ('inactive','inactive')]
+	STATUS = [('A','active'), ('I','inactive')]
 	Status =	models.CharField(max_length=50,
 		choices=STATUS,
 		default='active'
@@ -16,9 +16,9 @@ class Officer(models.Model):
 	def __str__(self):
 		return self.Name
 
-#class workdays(models.Model):
-#	"""docstring for workdays"""
-#	OfficerID = models.ForiegnKey(Officer,on_delete=RESTICT)
-#	workdays  = models.CharField()
+class workdays(models.Model):
+	"""docstring for workdays"""
+	OfficerID = models.ForeignKey(Officer,on_delete=models.SET_NULL,null=True)
+	workdays  = models.CharField(max_length=50)
 
-#Some changes
+

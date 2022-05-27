@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'officer',
     'activity_record',
+    'visitors',
 ]
 
 MIDDLEWARE = [

@@ -1,17 +1,18 @@
 from django.db import models
 from officer.models import Officer
+from visitors.models import Visitors
 # Create your models here.
 class Activity(models.Model):
 	"""docstring for Activity"""
 	officerID = models.ForeignKey(Officer, on_delete= models.SET_NULL,null=True)
-	#visitorID = models.ForeignKey(Artist, on_delete=models.NOT_NULL
+	visitorID = models.ForeignKey(Visitors, on_delete=models.SET_NULL,null=True)
 	Name = models.CharField(max_length=50)
-	TYPE = [('Leave','Leave'), ('appointmnet','appointmnet'), ('break','break')]
+	TYPE = [('L','Leave'), ('ap','appointmnet'), ('b','break')]
 	Type =	models.CharField(max_length=50,
 		choices=TYPE,
 		default='appointmnet'
 		)
-	STATUS = [('active','active'), ('inactive','inactive')]
+	STATUS = [('A','active'), ('I','inactive')]
 	Status =	models.CharField(max_length=50,
 		choices=STATUS,
 		default='active'
