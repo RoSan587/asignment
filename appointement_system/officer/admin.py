@@ -1,6 +1,6 @@
 from django.contrib import admin
 
 # Register your models here 
-from officer.models import Officer,workdays
+from officer.models import Officer,Workdays
 admin.site.register(Officer)
-admin.site.register(workdays)
+admin.site.register(Workdays)

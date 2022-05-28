@@ -1,0 +1,30 @@
+{% extends 'home.html' %}
+{% block content %}
+
+<div>
+	<div>
+		<div><a href="{% url 'create-visitor' %}">Add Visitors</a></div>
+		<table border=1>
+			<tr>
+				<th>VisitorID</th>
+				<th>Visitor Name</th>
+				<th>Status</th>
+				<th>Update</th>
+			</tr>
+			{% for visitor in content %}
+			<tr>
+				<th>{{visitor.id}}</th>
+				<th>{{visitor.name}}</th>
+				<th>{{visitor.is_active}}</th>
+				<th><a href="{% url 'update-visitor' visitor.id %}">Update</a></th>
+			</tr>
+				
+			{% endfor %}
+
+
+		</table>
+
+	</div>
+</div>
+
+{% endblock %}

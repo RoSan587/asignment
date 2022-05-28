@@ -17,8 +17,8 @@
 			{% for officer in content %}
 			<tr>
 				<th>{{officer.id}}</th>
-				<th>{{officer.Name}}</th>
-				<th>{{officer.Status}}</th>
+				<th>{{officer.name}}</th>
+				<th>{{officer.is_active}}</th>
 				<th><a href="{% url 'update-officer' officer.id %}">Update</a></th>
 				<th>add activity</th>
 			</tr>
