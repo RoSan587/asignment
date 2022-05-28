@@ -6,12 +6,13 @@ from .forms import VisitorForm
 def createvisitor(request):
 	form = VisitorForm()
 	content = {'form':form}
-	if request.method == "True":
+	if request.method == "POST":
 		form = VisitorForm(request.POST)
 		if form.is_valid():
 			form.save()
 			return redirect('home_page')
 		else:
+			print('dd')
 			messages.error(request, 'Please enter valid value')
 
 	return render(request, 'visitors/createvisitor.html',content) 
