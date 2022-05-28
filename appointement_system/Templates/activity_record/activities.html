@@ -3,6 +3,11 @@
 <div>
 	
 	<div>
+		<div>
+			
+			<a href="{% url 'create-activity' %}">Add Activity</a>
+
+		</div>
 
 		<table border="1">
 			<tr>
@@ -13,19 +18,25 @@
 				<th>date</th>
 				<th>start time</th>
 				<th>end time</th>
+				<th>Added time</th>
 				<th>Comments</th>
+				<th>Update</th>
 			</tr>
-			{% for officer in content %}
+			{% for activity in activities %}
 			<tr>
-				<td>{{}}</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>s
+				<td>{{activity.officer}}</td>
+				<td>{{activity.visitor}}</td>
+				<td>{{activity.activitytype}}</td>
+				<td>{% if activity.is_active %}Active {% else %}Inactive{% endif %}</td>
+				<td>{{activity.date}}</td>
+				<td>{{activity.start_time}}</td>
+				<td>{{activity.end_time}}</td>
+				<td>{{activity.addedd_on}}</td>
+				<td>{{activity.comment}}</td>
+				<td><a href="{% url 'update-activity' activity.activityid%}">Update</a></td>
+
 			</tr>
+			{% endfor %}
 		</table>
 
 	</div>

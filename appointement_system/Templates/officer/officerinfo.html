@@ -12,15 +12,13 @@
 				<th>Officer Name</th>
 				<th>Status</th>
 				<th>Update</th>
-				<th>add_activity</th>
 			</tr>
 			{% for officer in content %}
 			<tr>
 				<th>{{officer.id}}</th>
 				<th>{{officer.name}}</th>
-				<th>{{officer.is_active}}</th>
+				<th>{% if officer.is_active %}Active {% else %}Inactive{% endif %}</th>
 				<th><a href="{% url 'update-officer' officer.id %}">Update</a></th>
-				<th>add activity</th>
 			</tr>
 				
 			{% endfor %}

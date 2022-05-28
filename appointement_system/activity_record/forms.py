@@ -4,7 +4,7 @@ from .models import Activity
 class createActivityForm(ModelForm):
 	class Meta:
 		model = Activity
-		exclude = ['is_canceled']
+		exclude = ['is_cancelled']
 
 class updateActivityForm(ModelForm):
 	class Meta:

@@ -5,8 +5,9 @@ from visitors.models import Visitors
 # Create your models here.
 class Activity(models.Model):
 	"""docstring for Activity"""
-	officerid = models.ForeignKey(Officer, on_delete= models.SET_NULL,null=True)
-	visitorid = models.ForeignKey(Visitors, on_delete=models.SET_NULL,null=True,blank=True)
+	activityid = models.AutoField(primary_key=True)
+	officer = models.ForeignKey(Officer, on_delete= models.SET_NULL,null=True)
+	visitor = models.ForeignKey(Visitors, on_delete=models.SET_NULL,null=True,blank=True)
 	TYPE = [('L','Leave'), ('ap','appointmnet'), ('b','break')]
 	activitytype =	models.CharField(max_length=50,
 		choices=TYPE,

@@ -25,7 +25,6 @@ def createofficer(request):
 
 def updateofficer(request,id):
 	officer = Officer.objects.get(id=id)
-	print(officer)
 	form = OfficerForm(instance=officer)
 	content = {'form': form} 	
 	if request.method == 'POST':
