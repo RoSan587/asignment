@@ -14,7 +14,7 @@ class Officer(models.Model):
 
 class Workdays(models.Model):
 	"""docstring for workdays"""
-	officerid = models.ForeignKey(Officer,on_delete=models.SET_NULL,null=True)
+	officer = models.ForeignKey(Officer,on_delete=models.SET_NULL,null=True)
 	workdays  = models.CharField(max_length=50)
 
 

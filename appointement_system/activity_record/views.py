@@ -3,17 +3,22 @@ from django.http import HttpResponse
 from django.contrib import messages
 from .forms import createActivityForm, updateActivityForm
 from .models import Activity
+from officer.models import Officer
 # Create your views here.
 def create_activity(request):
 	form = createActivityForm()
 	content = {'form':form}
 	if request.method == "POST":
-		form = createActivityForm(request.POST)
-		if form.is_valid():
-			form.save()
-			return redirect('home_page')
+		officer = request.POST.get('officer')
+		if Officer.objects.values_list('is_active',flat=True).get(id=officer):
+			form = createActivityForm(request.POST)
+			if form.is_valid():
+				form.save()
+				return redirect('home_page')
+			else:
+				messages.error(request,"Enter the valid value")
 		else:
-			messages.error(request,"Enter the valid value")
+			messages.error(request,"Officer is Inactivte")
 	return render(request,'activity_record/create_activity.html',content)
 
 

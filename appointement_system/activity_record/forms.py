@@ -1,5 +1,6 @@
 from django.forms import ModelForm
 from .models import Activity
+from officer.models import Officer
 
 class createActivityForm(ModelForm):
 	class Meta:
@@ -9,5 +10,5 @@ class createActivityForm(ModelForm):
 class updateActivityForm(ModelForm):
 	class Meta:
 		model = Activity
-		fields = '__all__'
+		exclude = ['is_active','activitytype']
 

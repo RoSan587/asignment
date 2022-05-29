@@ -15,7 +15,7 @@
 			<tr>
 				<th>{{visitor.id}}</th>
 				<th>{{visitor.name}}</th>
-				<th>{{visitor.is_active}}</th>
+				<th>{% if visitor.is_active %}Active {% else %}Inactive{% endif %}</th>
 				<th><a href="{% url 'update-visitor' visitor.id %}">Update</a></th>
 			</tr>
 				
