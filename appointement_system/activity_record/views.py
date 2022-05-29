@@ -4,6 +4,7 @@ from django.contrib import messages
 from .forms import createActivityForm, updateActivityForm
 from .models import Activity
 from officer.models import Officer
+from .filters import Activityfilter 
 # Create your views here.
 def create_activity(request):
 	form = createActivityForm()
@@ -38,4 +39,14 @@ def update_activity(request,id):
 def activities(request):
 	activities = Activity.objects.all()
 	content = {'activities':activities}
+	
+
+	form = Activityfilter()
+	content['form'] = form
+	myFilter = Activityfilter(request.GET, queryset=activities)
+
+	activities = myFilter.qs
+	content['activities'] = activities
+
+
 	return render(request,'activity_record/activities.html',content)

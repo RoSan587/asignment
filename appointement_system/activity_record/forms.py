@@ -12,3 +12,4 @@ class updateActivityForm(ModelForm):
 		model = Activity
 		exclude = ['is_active','activitytype']
 
+
