@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib import messages
 from .models import Officer
 from .forms import OfficerForm, Workdays
+from activity_record.models import Activity 
 
 
 # My views here.
@@ -29,7 +30,6 @@ def updateofficer(request,id):
 	content = {'form': form} 	
 	if request.method == 'POST':
 		form = OfficerForm(request.POST,instance=officer)
-		print(form)
 		if form.is_valid():
 			form.save()
 			return redirect('home_page')

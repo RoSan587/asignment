@@ -39,14 +39,9 @@ def update_activity(request,id):
 def activities(request):
 	activities = Activity.objects.all()
 	content = {'activities':activities}
-	
-
 	form = Activityfilter()
 	content['form'] = form
 	myFilter = Activityfilter(request.GET, queryset=activities)
-
 	activities = myFilter.qs
 	content['activities'] = activities
-
-
 	return render(request,'activity_record/activities.html',content)
