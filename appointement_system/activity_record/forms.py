@@ -18,7 +18,10 @@ class createActivityForm(ModelForm):
 			'addedd_on':forms.DateTimeInput(attrs={'class':'form-control'}),
 			'comment':forms.TextInput(attrs={'class':'form-control'}),
 		}
-		
+	
+
+
+
 
 class updateActivityForm(ModelForm):
 	class Meta:

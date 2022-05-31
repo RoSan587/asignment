@@ -1,5 +1,5 @@
 from django.db import models
-
+from multiselectfield import MultiSelectField
 # Create your models here.
 class Officer(models.Model):
 	"""docstring for Officer"""
@@ -14,15 +14,14 @@ class Officer(models.Model):
 
 class Workdays(models.Model):
 	"""docstring for Workdays"""
-	officer = models.ForeignKey(Officer, on_delete= models.SET_NULL,null=True)
+	officer = models.OneToOneField(Officer, on_delete= models.SET_NULL,null=True)
 	choices = [
-		(1,'Sunday'),(2,'Mondays'),(3,'Tuesday'),
-		(4,'Wednesday'),(5,'Thursday'),(6,'Friday'),
-		(7,'Saturday'),
-	]
-	workday_from = models.DecimalField(max_digits=10,decimal_places=0,choices=choices,default=5)
-	workday_to = models.DecimalField(max_digits=10,decimal_places=0,choices=choices,default=4)
+		('Sunday','Sunday'),('Mondays','Mondays'),('Tuesday','Tuesday'),
+		('Wednesday','Wednesday'),('Thursday','Thursday'),('Friday','Friday'),
+		('Saturday','Saturday'),
+		]
+	workdays = MultiSelectField(max_length=100,choices=choices)
 
-	def  __str__():
-		return self.officer
+	def  __str__(self):
+		return str(self.officer)
  		

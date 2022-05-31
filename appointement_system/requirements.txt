@@ -7,6 +7,7 @@ ca-certificates           2022.5.18.1          ha878542_0    conda-forge
 certifi                   2016.9.26                py36_0    conda-forge
 django                    2.2.5                    py36_1    anaconda
 django-filter             21.1               pyhd8ed1ab_0    conda-forge
+django-multiselectfield   0.1.12             pyhd8ed1ab_0    conda-forge
 ld_impl_linux-64          2.38                 h1181459_1  
 libffi                    3.3                  he6710b0_2  
 libgcc-ng                 11.2.0               h1234567_0  

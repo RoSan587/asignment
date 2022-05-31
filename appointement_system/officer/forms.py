@@ -6,7 +6,7 @@ class OfficerForm(ModelForm):
 	"""docstring for OfficerForm"""
 	class Meta:
 		model = Officer
-		exclude = '__all__'
+		exclude = ['available_time']
 		widgets = {
 			'name': forms.TextInput(attrs={'class':'form-control'}),
 			'post': forms.TextInput(attrs={'class':'form-control'}),
@@ -22,8 +22,7 @@ class Workdaysform(ModelForm):
 		fields = '__all__'
 		widgets = {
 			'officer': forms.Select(attrs={'class':'form-control'}),
-			'workday_from':forms.Select(attrs={'class':'form-control'}),
-			'workday_to': forms.Select(attrs={'class':'form-control'}),
+			
 
 		}
 	

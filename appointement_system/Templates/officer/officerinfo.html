@@ -9,6 +9,7 @@
 				<th>OfficerID</th>
 				<th>Officer Name</th>
 				<th>Status</th>
+				<th>Worktime</th>
 				<th>Update</th>
 			</tr>
 			{% for officer in content %}
@@ -16,6 +17,7 @@
 				<th>{{officer.id}}</th>
 				<th>{{officer.name}}</th>
 				<th>{% if officer.is_active %}Active {% else %}Inactive{% endif %}</th>
+				<th>{{officer.workstartTime}}->{{officer.workendTime}}</th>
 				<th><a class="btn btn-primary" href="{% url 'update-officer' officer.id %}">Update</a></th>
 			</tr>
 			{% endfor %}

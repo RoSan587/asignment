@@ -27,7 +27,7 @@ class Activity(models.Model):
 		return self.comment
 
 
-def activity_check(sender,instance,created,**kargs):
+def activity_status_check(sender,instance,created,**kargs):
 	if created == False:
 		activities = Activity.objects.all()
 		for activity in activities:
@@ -46,6 +46,6 @@ def activity_check(sender,instance,created,**kargs):
 				activity.save()
 
 
-post_save.connect(activity_check,sender=Officer)
-post_save.connect(activity_check,sender=Visitors)
+post_save.connect(activity_status_check,sender=Officer)
+post_save.connect(activity_status_check,sender=Visitors)
 				
