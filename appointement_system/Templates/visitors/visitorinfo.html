@@ -3,8 +3,8 @@
 
 <div>
 	<div>
-		<div><a href="{% url 'create-visitor' %}">Add Visitors</a></div>
-		<table border=1>
+		<div><a class="btn btn-primary" href="{% url 'create-visitor' %}">Add Visitors</a></div>
+		<table class="table table table-striped">
 			<tr>
 				<th>VisitorID</th>
 				<th>Visitor Name</th>
@@ -16,7 +16,7 @@
 				<th>{{visitor.id}}</th>
 				<th>{{visitor.name}}</th>
 				<th>{% if visitor.is_active %}Active {% else %}Inactive{% endif %}</th>
-				<th><a href="{% url 'update-visitor' visitor.id %}">Update</a></th>
+				<th><a class="btn btn-primary" href="{% url 'update-visitor' visitor.id %}">Update</a></th>
 			</tr>
 				
 			{% endfor %}

@@ -1,38 +1,43 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+</head>
 </head>
 <body>
-	<div>
-		
-		<h1>Comp.info </h1>
-
+	<div class="container  mt-5">
+		<h2 class="text-center">Appointment Management System</h2>
 	</div>
-		<div class="navbar">
-		
-			<div>
-				
-				<ul>
-				<li><a href="{%url 'officerinfo' %}">Officers</a></li>
-				<li><a href="{%url 'visitorinfo' %}">Visitors</a></li>
-				<li><a href="{%url 'activities' %}">activities</a></li>
+	<div class="container mt-5">
+		<div class="row">
+			<div class="col-2">
+				<ul class="list-group">
+					<li class="list-group-item">
+						<a class="btn btn-outline-info" href="{%url 'officerinfo' %}">Officers</a>
+					</li>
+					<li class="list-group-item">
+						<a class="btn btn-outline-info" href="{%url 'visitorinfo' %}">Visitors</a>
+					</li>
+					<li class="list-group-item">
+						<a class="btn btn-outline-info" href="{%url 'activities' %}">Activities</a>
+					</li>
 			    </ul>
-
-			</div>
-
-		</div>
-		<div>
-			{% if messages %}
+				{% if messages %}
 				<ul class="messages">
-    				{% for message in messages %}{{ message }}</li>
-    				{% endfor %}
-				</ul>
-			{% endif %}
-		</div>
-
-	{% block content %}
+    				<li>{% for message in messages %}{{ message }}{% endfor %}</li>
+    			</ul>
+				
+				{% endif%}
+			</div>	
+			<div class="col">
+			  	{% block content %}
 	
-	{% endblock %}
+				{% endblock %}
+			</div>
+			
+	   </div>
+   </div>
 </body>
 </html>

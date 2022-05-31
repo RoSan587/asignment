@@ -2,20 +2,20 @@ from django.db import models
 from django.utils import timezone
 from officer.models import Officer
 from visitors.models import Visitors
-from django.db.models.signals import post_save
+from django.db.models.signals import post_save,pre_save
 # Create your models here.
 class Activity(models.Model):
 	"""docstring for Activity"""
 	activityid = models.AutoField(primary_key=True)
 	officer = models.ForeignKey(Officer, on_delete= models.SET_NULL,null=True)
 	visitor = models.ForeignKey(Visitors, on_delete=models.SET_NULL,null=True,blank=True)
-	TYPE = [('L','Leave'), ('ap','appointment'), ('b','break')]
+	TYPE = [('Leave','Leave'), ('Appointment','Appointment'), ('Break','Break')]
 	activitytype =	models.CharField(max_length=50,
 		choices=TYPE,
-		default='appointment'
+		default='Appointment'
 		)
 	is_active = models.BooleanField(default=True)
-	date = models.DateField(auto_now=False, auto_now_add=True)
+	date = models.DateField(auto_now=False, auto_now_add=False)
 	start_time = models.TimeField(auto_now=False, auto_now_add=False) 
 	end_time = models.TimeField(auto_now=False, auto_now_add=False)
 	addedd_on = models.DateTimeField(default=timezone.now())
@@ -38,7 +38,6 @@ def activity_check(sender,instance,created,**kargs):
 				visitor_status = Visitors.objects.values_list('is_active',flat=True).get(id=activity.visitor.id)
 			except:
 				pass
-			print(officer_status,visitor_status)
 			if officer_status and visitor_status:
 				activity.is_active = True
 				activity.save()

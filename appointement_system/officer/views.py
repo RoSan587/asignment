@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib import messages
-from .models import Officer
-from .forms import OfficerForm, Workdays
+from .models import Officer, Workdays
+from .forms import OfficerForm, Workdaysform
 from activity_record.models import Activity 
 
 
@@ -34,3 +34,16 @@ def updateofficer(request,id):
 			form.save()
 			return redirect('home_page')
 	return render(request,'officer/createofficer.html',content)
+
+def addworkdays(request):
+	form = Workdaysform()
+	content = {'form': form} 	
+	if request.method == 'POST' :
+		form = Workdaysform(request.POST)
+		if form.is_valid():
+			form.save()
+			return redirect('home_page')
+		else:
+			messages.error(request, 'Please enter valid value')
+	return render(request,'officer/workdaysform.html',content)
+

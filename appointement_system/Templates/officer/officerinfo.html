@@ -1,14 +1,12 @@
 {% extends 'home.html' %}
 {% block content %}
 <div>
-	
-		
-	<div>
-		<div><a href="{% url 'create-officer' %}">add officer</a></div>
-			
-		<table border=1>
+	<a class="btn btn-primary" href="{% url 'create-officer' %}">Add Officer</a>
+	<a class="btn btn-primary" href="{% url 'addworkdays' %}">Add Workdays</a>
+	<div class="container-md">
+		<table class="table table table-striped">
 			<tr>
-				<th>Officerid</th>
+				<th>OfficerID</th>
 				<th>Officer Name</th>
 				<th>Status</th>
 				<th>Update</th>
@@ -18,17 +16,10 @@
 				<th>{{officer.id}}</th>
 				<th>{{officer.name}}</th>
 				<th>{% if officer.is_active %}Active {% else %}Inactive{% endif %}</th>
-				<th><a href="{% url 'update-officer' officer.id %}">Update</a></th>
+				<th><a class="btn btn-primary" href="{% url 'update-officer' officer.id %}">Update</a></th>
 			</tr>
-				
 			{% endfor %}
-
-
 		</table>
-
-
 	</div>
-
-
 </div>
 {% endblock %}

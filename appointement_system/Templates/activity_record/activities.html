@@ -1,11 +1,9 @@
 {% extends 'home.html' %}
 {% block content%}
 <div>
-	
-	<div>
 		<div>
 			
-			<a href="{% url 'create-activity' %}">Add Activity</a>
+			<a class="btn btn-primary" href="{% url 'create-activity' %}">Add Activity</a>
 
 		</div>
 		<div>
@@ -14,10 +12,10 @@
 				{{form.form}}
 				<input type="submit" value="submit"/>
 		
-	</form>
+			</form>
 		</div>
 
-		<table border="1">
+		<table class="table table table-striped">
 			<tr>
 				<th>Officer Name</th>
 				<th>Visitor name</th>
@@ -41,13 +39,10 @@
 				<td>{{activity.end_time}}</td>
 				<td>{{activity.addedd_on}}</td>
 				<td>{{activity.comment}}</td>
-				<td><a href="{% url 'update-activity' activity.activityid%}">Update</a></td>
+				<td><a class="btn btn-primary" href="{% url 'update-activity' activity.activityid%}">Update</a></td>
 
 			</tr>
 			{% endfor %}
 		</table>
-
-	</div>
-
 </div>
 {% endblock %}
