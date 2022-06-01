@@ -72,7 +72,7 @@ def activity_datetime_check(request,instance):
 		print(result)
 		return result
 	else:
-		return {'bool':False,'messages':'User is not availabe that Day'}	
+		return {'bool':False,'messages':'Officer is not availabe that Day'}	
 
 def time_check(request,instance):
 	end_time = instance.cleaned_data['end_time']
@@ -88,7 +88,7 @@ def time_check(request,instance):
 				print('here5')
 				if Appointment.start_time <= start_time and start_time <= Appointment.end_time:
 					
-					return {'bool':False,'messages':'User is not availabe that time'}
+					return {'bool':False,'messages':'Officer is not availabe that time'}
 				else:
 					print('here4')
 			return {'bool':True,'messages':''}

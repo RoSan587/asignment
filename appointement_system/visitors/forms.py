@@ -8,7 +8,7 @@ class VisitorForm(ModelForm):
 		model = Visitors
 		fields = '__all__'
 		widgets = {
-			'name':forms.Select(attrs={'class':'form-control'}),
+			'name':forms.TextInput(attrs={'class':'form-control'}),
 			'mbl_no': forms.TextInput(attrs={'class':'form-control'}),
 			'email': forms.EmailInput(attrs={'class':'form-control'}),
 

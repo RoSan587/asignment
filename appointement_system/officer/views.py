@@ -58,10 +58,8 @@ def updateworkdays(request,id):
 	form = Workdaysform(instance=workday)
 	content = {'form': form} 	
 	if request.method == 'POST':
-		print('sss')
 		form = Workdaysform(request.POST,instance=workday)
 		if form.is_valid():
-			print('ss')
 			form.save()
 			return redirect('home_page')
 	return render(request,'officer/workdaysform.html',content)

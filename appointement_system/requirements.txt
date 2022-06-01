@@ -1,28 +1,11 @@
-# packages in environment at /home/rosan/anaconda3/envs/env0:
-#
-# Name                    Version                   Build  Channel
-_libgcc_mutex             0.1                        main  
-_openmp_mutex             5.1                       1_gnu  
-ca-certificates           2022.5.18.1          ha878542_0    conda-forge
-certifi                   2016.9.26                py36_0    conda-forge
-django                    2.2.5                    py36_1    anaconda
-django-filter             21.1               pyhd8ed1ab_0    conda-forge
-django-multiselectfield   0.1.12             pyhd8ed1ab_0    conda-forge
-ld_impl_linux-64          2.38                 h1181459_1  
-libffi                    3.3                  he6710b0_2  
-libgcc-ng                 11.2.0               h1234567_0  
-libgomp                   11.2.0               h1234567_0  
-libstdcxx-ng              11.2.0               h1234567_0  
-ncurses                   6.3                  h7f8727e_2  
-openssl                   1.1.1o               h166bdaf_0    conda-forge
-pip                       21.2.2           py36h06a4308_0  
-python                    3.6.13               h12debd9_1  
-pytz                      2021.3             pyhd3eb1b0_0    anaconda
-readline                  8.1.2                h7f8727e_1  
-setuptools                58.0.4           py36h06a4308_0  
-sqlite                    3.38.3               hc218d9a_0  
-sqlparse                  0.4.1                      py_0    anaconda
-tk                        8.6.11               h1ccaba5_1  
-wheel                     0.37.1             pyhd3eb1b0_0  
-xz                        5.2.5                h7f8727e_1  
-zlib                      1.2.12               h7f8727e_2  
+env is a virtual env. folder 
+please actiavte env using
+source env/bin/activate 
+
+
+asgiref==3.5.2
+backports.zoneinfo==0.2.1
+Django==4.0.4
+django-filter==21.1
+django-multiselectfield==0.1.12
+sqlparse==0.4.2
