@@ -1,0 +1,23 @@
+{% extends 'home.html' %}
+{% block content %}
+<div>
+	<div class="container-md">
+		<table class="table table table-striped">
+			<tr>
+				<th>Officer Name</th>
+				<th>Workdays</th>
+				<th>Update</th>
+			</tr>
+			{% for data in workdays %}
+			<tr>
+				<th>{{data.officer}}</th>
+				<th>{{data.workdays}}</th>
+				<th>
+					<a class="btn btn-primary" href="{% url 'updateworkdays' data.officer.id %}">Update</a>
+				</th>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+</div>
+{% endblock %}

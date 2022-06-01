@@ -24,9 +24,13 @@ def create_activity(request):
 		if officer_status == True and visitor_status == True:
 			form = createActivityForm(request.POST)
 			if form.is_valid():
-				if activity_datetime_check(request,form):
+				result = activity_datetime_check(request,form)
+				print(result)
+				if result['bool']:
 					form.save()
 					return redirect('home_page')
+				else:
+					messages.error(request,result['messages'])
 			else:
 				messages.error(request,"Enter the valid value")
 		else:
@@ -64,8 +68,34 @@ def activity_datetime_check(request,instance):
 	officer = instance.cleaned_data['officer']
 	workdays = Workdays.objects.values_list('workdays',flat=True).get(officer=officer)
 	if weekDays[day] in list(workdays):
-		return True
+		result = time_check(request,instance)
+		print(result)
+		return result
 	else:
-		messages.error(request,"User not availabe in that date")	
+		return {'bool':False,'messages':'User is not availabe that Day'}	
+
+def time_check(request,instance):
+	end_time = instance.cleaned_data['end_time']
+	start_time = instance.cleaned_data['start_time']
+	if start_time < end_time:
+		officer = instance.cleaned_data['officer']
+		officer_work_time = Officer.objects.values_list('workstartTime',
+			'workendTime').get(id=officer.id)
+		if start_time >= officer_work_time[0] and end_time <= officer_work_time[1]:
+			print('here1')
+			officer_appointments = Activity.objects.filter(officer=officer)
+			for Appointment in officer_appointments:
+				print('here5')
+				if Appointment.start_time <= start_time and start_time <= Appointment.end_time:
+					
+					return {'bool':False,'messages':'User is not availabe that time'}
+				else:
+					print('here4')
+			return {'bool':True,'messages':''}
+		else:
+			return {'bool':False,'messages':'Given time is not Officers working time'}
+	else:	
+		return {'bool':False,'messages':'Time range is not valid'}
+
 
 

@@ -20,7 +20,7 @@ class Workdays(models.Model):
 		('Wednesday','Wednesday'),('Thursday','Thursday'),('Friday','Friday'),
 		('Saturday','Saturday'),
 		]
-	workdays = MultiSelectField(max_length=100,choices=choices)
+	workdays = MultiSelectField(max_length=100,choices=choices,default='Sunday')
 
 	def  __str__(self):
 		return str(self.officer)
