@@ -1,8 +1,3 @@
-env is a virtual env. folder 
-please actiavte env using
-source env/bin/activate 
-
-
 asgiref==3.5.2
 backports.zoneinfo==0.2.1
 Django==4.0.4
