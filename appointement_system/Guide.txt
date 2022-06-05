@@ -1,0 +1,52 @@
+You'll need python to run this project and pip to install other packages.
+Also python does not need any other localhost server to host the project. It'll give you its own server while running the project.
+Below is the step by step process for how to run this project.
+Since I'm using the Ubuntu system, instructions are for the command line and I'll be giving the commands for both the Windows system and Linux system.
+1.Download latest version of python from the link below
+https://www.python.org/downloads/release/python-3104/
+or, just run sudo apt-get install python3 in the terminal (for linux, although python is preinstalled in ubuntu it'll update the python )
+
+2. Since while working in the python environment python should already install pip. Although if its not working then you can install it from here:
+https://pip.pypa.io/en/stable/installation/
+And type 
+pip install virtualenv (in the command prompt or terminal)
+to install the virtualenv for python
+
+3. You can clone your project wherever you want in your system. 
+
+4. Now, open up your cmd prompt or terminal inside the project.
+The current location must be "../asingment-main/appoinment_system/"
+
+5. Now you have to activate the python environment, since i already created and pushed it. You can find the 'env' folder inside the project. 
+And you can just activate it by typing following command 
+source env/bin/activate or env/bin/activate (assuming of course you are inside the project directory ie. "../asingment-main/appoinment_system/") 
+
+6. Now, you have python3 and pip. Also, you are inside the virtual environment. Install django using pip. For that just type.
+
+pip install django 
+
+7. Now I've used two extra libraries for this project i.e django-filters and django-multiselectfield. To install them, simply type
+
+pip install django-filter
+pip install django-multiselectfield
+
+8. Now you have everything you need to run this project.Now, inside the project we can see the manage.py file. Now, to host this project you can simply type
+
+python3 manage.py runserver
+
+it'll give you a location of the server, in which case the default is 'http://127.0.0.1:8000/'
+
+9.Now, I want you to make migrations first before you test the project. For that, stop the server using ctrl + c . And run the following command.
+python3 manage.py makemigrations
+python3 manage.py migrate
+this'll update the database with respect to our apps.
+
+(optional)
+if you want to explore more about how the databases are set up. You can just create a superuser for django admin panel
+for that type:
+
+python3 manage.py createsuperuser
+Give in the username and password for this and you can access the admin panel from.
+"127.0.0.1:8000/admin"
+
+This should work perfectly. After this, please contact me if it's not working. Django is very easy and robust. Since it'll host our project by itself, it makes it much easier to work. Also, I'd like to apologize for the inconvenience and trouble. I Hope this is very helpful to test and run my project.
